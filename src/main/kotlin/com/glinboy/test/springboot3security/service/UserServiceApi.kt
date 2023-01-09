@@ -3,10 +3,9 @@ package com.glinboy.test.springboot3security.service
 import com.glinboy.test.springboot3security.entity.User
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
-import org.springframework.security.core.userdetails.UserDetailsService
 import java.util.*
 
-interface UserServiceApi: UserDetailsService {
+interface UserServiceApi {
     fun getUsers(pageable: Pageable): Page<User>
     fun getUser(id: String): Optional<User>
     fun saveUser(book: User): User
