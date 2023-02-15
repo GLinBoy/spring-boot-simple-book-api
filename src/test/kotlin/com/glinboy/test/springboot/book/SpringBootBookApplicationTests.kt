@@ -1,10 +1,10 @@
-package com.glinboy.test.springboot3security
+package com.glinboy.test.springboot.book
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SpringBoot3SecurityApplicationTests {
+class SpringBootBookApplicationTests {
 
     @Test
     fun contextLoads() {
