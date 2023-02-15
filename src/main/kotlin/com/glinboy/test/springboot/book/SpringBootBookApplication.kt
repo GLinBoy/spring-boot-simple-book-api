@@ -1,11 +1,11 @@
-package com.glinboy.test.springboot3security
+package com.glinboy.test.springboot.book
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringBoot3SecurityApplication
+class SpringBootBookApplication
 
 fun main(args: Array<String>) {
-    runApplication<SpringBoot3SecurityApplication>(*args)
+    runApplication<SpringBootBookApplication>(*args)
 }
