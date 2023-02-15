@@ -1,6 +1,6 @@
-package com.glinboy.test.springboot3security.service
+package com.glinboy.test.springboot.book.service
 
-import com.glinboy.test.springboot3security.entity.Book
+import com.glinboy.test.springboot.book.entity.Book
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import java.util.*

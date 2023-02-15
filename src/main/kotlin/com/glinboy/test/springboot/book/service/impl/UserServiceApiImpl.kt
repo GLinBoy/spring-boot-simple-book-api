@@ -1,8 +1,8 @@
-package com.glinboy.test.springboot3security.service.impl
+package com.glinboy.test.springboot.book.service.impl
 
-import com.glinboy.test.springboot3security.entity.User
-import com.glinboy.test.springboot3security.repository.UserRepository
-import com.glinboy.test.springboot3security.service.UserServiceApi
+import com.glinboy.test.springboot.book.entity.User
+import com.glinboy.test.springboot.book.repository.UserRepository
+import com.glinboy.test.springboot.book.service.UserServiceApi
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus

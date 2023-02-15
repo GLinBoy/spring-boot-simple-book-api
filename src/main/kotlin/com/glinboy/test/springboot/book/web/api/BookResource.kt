@@ -1,7 +1,7 @@
-package com.glinboy.test.springboot3security.web.api
+package com.glinboy.test.springboot.book.web.api
 
-import com.glinboy.test.springboot3security.entity.Book
-import com.glinboy.test.springboot3security.service.BookServiceApi
+import com.glinboy.test.springboot.book.entity.Book
+import com.glinboy.test.springboot.book.service.BookServiceApi
 import io.swagger.v3.oas.annotations.Parameter
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable

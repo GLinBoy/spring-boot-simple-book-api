@@ -1,4 +1,4 @@
-package com.glinboy.test.springboot3security.entity
+package com.glinboy.test.springboot.book.entity
 
 import jakarta.persistence.*
 

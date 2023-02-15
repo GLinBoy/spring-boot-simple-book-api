@@ -1,4 +1,4 @@
-package com.glinboy.test.springboot3security.web
+package com.glinboy.test.springboot.book.web
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping

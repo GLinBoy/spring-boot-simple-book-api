@@ -1,8 +1,8 @@
-package com.glinboy.test.springboot3security.service.impl
+package com.glinboy.test.springboot.book.service.impl
 
-import com.glinboy.test.springboot3security.entity.Book
-import com.glinboy.test.springboot3security.repository.BookRepository
-import com.glinboy.test.springboot3security.service.BookServiceApi
+import com.glinboy.test.springboot.book.entity.Book
+import com.glinboy.test.springboot.book.repository.BookRepository
+import com.glinboy.test.springboot.book.service.BookServiceApi
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
