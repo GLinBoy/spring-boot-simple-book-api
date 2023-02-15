@@ -1,1 +1,1 @@
-rootProject.name = "SpringBoot3Security"
+rootProject.name = "SpringBootBook"
