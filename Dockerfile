@@ -1,5 +1,18 @@
-FROM eclipse-temurin:20-jre-alpine
+FROM eclipse-temurin:20-jdk-alpine AS builder
+WORKDIR /workspace/app
+
+COPY gradle gradle
+COPY build.gradle.kts settings.gradle.kts gradlew ./
+COPY src src
+
+RUN ./gradlew build -x test
+RUN mkdir -p build/libs/dependency && (cd build/libs/dependency; jar -xf ../SpringBootBook-*.jar)
+
+
+FROM eclipse-temurin:20-jre-alpine AS runner
 VOLUME /tmp
-ARG JAR_FILE=build/libs/SpringBootBook-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar ${0} ${@}"]
+ARG DEPENDENCY=/workspace/app/build/libs/dependency
+COPY --from=builder ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=builder ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=builder ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.glinboy.test.springboot.book.SpringBootBookApplicationKt"]
