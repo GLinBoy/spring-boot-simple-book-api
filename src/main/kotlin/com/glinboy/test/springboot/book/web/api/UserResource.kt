@@ -12,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException
 
 @RestController
 @RequestMapping("/api/v1/users")
-class UserController(private val userService: UserServiceApi) {
+class UserResource(private val userService: UserServiceApi) {
 
     @GetMapping
     fun getUsers(@Parameter(hidden = true) pageable: Pageable): ResponseEntity<Page<User>> =

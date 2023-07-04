@@ -2,7 +2,7 @@ package com.glinboy.test.springboot.book.web.api
 
 import org.junit.jupiter.api.Test
 
-class UserControllerTest {
+class UserResourceTest {
 
     @Test
     fun getUsers() {
