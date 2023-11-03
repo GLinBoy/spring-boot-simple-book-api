@@ -9,7 +9,7 @@ RUN ./gradlew build -x test
 RUN mkdir -p build/libs/dependency && (cd build/libs/dependency; jar -xf ../SpringBootBook-*.jar)
 
 
-FROM eclipse-temurin:20-jre-alpine AS runner
+FROM eclipse-temurin:21-jre-alpine AS runner
 VOLUME /tmp
 
 RUN addgroup -S app && adduser -S spring-app -G app
