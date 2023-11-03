@@ -1,4 +1,4 @@
-FROM eclipse-temurin:20-jdk-alpine AS builder
+FROM eclipse-temurin:21-jdk-alpine AS builder
 WORKDIR /workspace/app
 
 COPY gradle gradle
