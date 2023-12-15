@@ -14,7 +14,7 @@ group = "com.glinboy.test"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_21
 
-val springDocVersion = "2.1.0"
+val springDocVersion = "2.3.0"
 
 repositories {
     mavenCentral()
