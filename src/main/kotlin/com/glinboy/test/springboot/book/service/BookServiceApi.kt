@@ -9,6 +9,6 @@ import java.util.*
 interface BookServiceApi {
     fun getBooks(pageable: Pageable): Page<BookDTO>
     fun getBook(id: Long): Optional<BookDTO>
-    fun saveBook(book: Book): BookDTO
+    fun saveBook(bookDTO: BookDTO): BookDTO
     fun deleteBook(id: Long)
 }
