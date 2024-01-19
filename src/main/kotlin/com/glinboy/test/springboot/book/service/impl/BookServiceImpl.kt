@@ -10,7 +10,9 @@ import java.util.Optional
 
 @Service
 class BookServiceImpl(val bookRepository: BookRepository): BookServiceApi {
-    override fun getBooks(pageable: Pageable): Page<Book> = bookRepository.findAll(pageable)
+    override fun getBooks(pageable: Pageable): Page<BookDTO> = bookRepository
+        .findAll(pageable)
+        .map { BookDTO(it.id, it.title, it.author, it.isbn) }
 
     override fun getBook(id: Long): Optional<Book> = bookRepository.findById(id)
     override fun saveBook(book: Book): Book = bookRepository.save(book)
