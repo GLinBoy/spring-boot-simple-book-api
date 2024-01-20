@@ -1,7 +1,7 @@
 package com.glinboy.test.springboot.book.web.api
 
-import com.glinboy.test.springboot.book.entity.Book
 import com.glinboy.test.springboot.book.service.BookServiceApi
+import com.glinboy.test.springboot.book.service.dto.BookDTO
 import io.swagger.v3.oas.annotations.Parameter
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -15,30 +15,30 @@ import org.springframework.web.server.ResponseStatusException
 class BookResource(val bookService: BookServiceApi) {
 
     @GetMapping
-    fun getBooks(@Parameter(hidden = true) pageable: Pageable): ResponseEntity<Page<Book>> =
+    fun getBooks(@Parameter(hidden = true) pageable: Pageable): ResponseEntity<Page<BookDTO>> =
         ResponseEntity.ok(bookService.getBooks(pageable))
 
     @GetMapping("{id}")
-    fun getBook(@PathVariable id: Long): ResponseEntity<Book> =
+    fun getBook(@PathVariable id: Long): ResponseEntity<BookDTO> =
         bookService.getBook(id)
             .map { ResponseEntity.ok(it) }
             .orElseGet { ResponseEntity.notFound().build() }
 
     @PostMapping
-    fun addBook(@RequestBody book: Book): ResponseEntity<Book> =
-        ResponseEntity(bookService.saveBook(book), HttpStatus.CREATED)
+    fun addBook(@RequestBody bookDTO: BookDTO): ResponseEntity<BookDTO> =
+        ResponseEntity(bookService.saveBook(bookDTO), HttpStatus.CREATED)
 
     @DeleteMapping("{id}")
-    fun deleteBook(@PathVariable id: Long): ResponseEntity<Void> {
+    fun deleteBook(@PathVariable id: Long): ResponseEntity<Unit> {
         bookService.deleteBook(id)
         return ResponseEntity.noContent().build()
     }
 
     @PutMapping
-    fun updateBook(@RequestBody book: Book): ResponseEntity<Book> {
-        if (book.id == null) {
+    fun updateBook(@RequestBody bookDTO: BookDTO): ResponseEntity<BookDTO> {
+        if (bookDTO.id == null) {
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Book should have ID to update")
         }
-        return ResponseEntity.ok(bookService.saveBook(book))
+        return ResponseEntity.ok(bookService.saveBook(bookDTO))
     }
 }
