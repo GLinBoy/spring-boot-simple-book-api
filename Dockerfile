@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jdk-alpine AS builder
+FROM eclipse-temurin:24-jdk-alpine AS builder
 WORKDIR /workspace/app
 
 COPY gradle gradle
@@ -9,7 +9,7 @@ RUN ./gradlew build -x test
 RUN mkdir -p build/libs/dependency && (cd build/libs/dependency; jar -xf ../SpringBootBook-*.jar)
 
 
-FROM eclipse-temurin:21-jre-alpine AS runner
+FROM eclipse-temurin:24-jre-alpine AS runner
 VOLUME /tmp
 
 RUN addgroup -S app && adduser -S spring-app -G app
